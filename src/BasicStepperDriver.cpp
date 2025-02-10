@@ -101,7 +101,7 @@ short BasicStepperDriver::setMicrostep(short microsteps){
  * Set speed profile - CONSTANT_SPEED, LINEAR_SPEED (accelerated)
  * accel and decel are given in [full steps/s^2]
  */
-void BasicStepperDriver::setSpeedProfile(Mode mode, short accel, short decel){
+void BasicStepperDriver::setSpeedProfile(Mode mode, int accel, int decel){
     profile.mode = mode;
     profile.accel = accel;
     profile.decel = decel;

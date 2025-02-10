@@ -34,8 +34,8 @@ public:
     enum State {STOPPED, ACCELERATING, CRUISING, DECELERATING};
     struct Profile {
         Mode mode = CONSTANT_SPEED;
-        short accel = 1000;     // acceleration [steps/s^2]
-        short decel = 1000;     // deceleration [steps/s^2]    
+        int accel = 1000;     // acceleration [steps/s^2]
+        int decel = 1000;     // deceleration [steps/s^2]    
     };
     static inline void delayMicros(unsigned long delay_us, unsigned long start_us = 0){
         if (delay_us){
@@ -141,15 +141,15 @@ public:
      * Set speed profile - CONSTANT_SPEED, LINEAR_SPEED (accelerated)
      * accel and decel are given in [full steps/s^2]
      */
-    void setSpeedProfile(Mode mode, short accel=1000, short decel=1000);
+    void setSpeedProfile(Mode mode, int accel=1000, int decel=1000);
     void setSpeedProfile(struct Profile profile);
     struct Profile getSpeedProfile(void){
         return profile;
     }
-    short getAcceleration(void){
+    int getAcceleration(void){
         return profile.accel;
     }
-    short getDeceleration(void){
+    int getDeceleration(void){
         return profile.decel;
     }
     /*
